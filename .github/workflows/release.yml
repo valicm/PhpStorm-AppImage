@@ -17,12 +17,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         id: build
-        uses: valicm/appimage-bash@v1
+        uses: valicm/appimage-bash@v1.1
         with:
           version_url: 'https://data.services.jetbrains.com/products/download?code=PS&platform=linux'
           version_file: 'product-info.json'
           version_bash: 'jq -r  .version'
-          version_icon: 'phpstorm.png'
+          version_icon: 'phpstorm.svg'
           version_directory: 'opt/phpstorm'
       - name: Upload artifact
         if: ${{ env.APP_UPDATE_NEEDED == 'true' }}
