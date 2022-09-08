@@ -1,0 +1,42 @@
+name: Build AppImage
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 */12 * * *"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  version:
+    name: PhpStorm AppImage
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        id: build
+        uses: valicm/appimage-bash@main
+        with:
+          version_url: 'https://data.services.jetbrains.com/products/download?code=PS\&platform=linux'
+          version_file: 'product-info.json'
+          version_bash: 'jq -r  .version'
+          version_icon: 'phpstorm.png'
+          version_directory: 'opt/phpstorm'
+      - name: Upload artifact
+        if: ${{ env.APP_UPDATE_NEEDED == 'true' }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ env.APP_SHORT_NAME }}.AppImage
+          path: 'dist'
+      - name: Release
+        if: ${{ env.APP_UPDATE_NEEDED == 'true' }}
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: ${{ env.APP_NAME }} AppImage ${{ env.APP_VERSION }}
+          automatic_release_tag: latest
+          prerelease: false
+          files: |
+            dist/
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
