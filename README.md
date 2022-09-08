@@ -2,7 +2,7 @@
 <h2 align="center">PhpStorm AppImage</h2>
 <h3 align="center">Unofficial / Community provided PhpStorm AppImage</h3>
 
-[![Postman AppImage release](https://github.com/valicm/Postman-AppImage/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/valicm/Postman-AppImage/actions/workflows/release.yml)
+[![PhpStorm AppImage release](https://github.com/valicm/PhpStorm-AppImage/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/valicm/PhpStorm-AppImage/actions/workflows/release.yml)
 
 ## Get Started
 
