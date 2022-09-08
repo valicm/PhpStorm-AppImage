@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PhpStorm
+Exec=phpstorm.sh %f
+Icon=phpstorm
+Comment=PhpStorm
+Categories=Development;IDE;
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-phpstorm
