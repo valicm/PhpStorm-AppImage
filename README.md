@@ -29,7 +29,9 @@ chmod +x PhpStorm-*.AppImage
 
 #### Build
 The AppImage is built from .tar.gz PhpStorm package by GitHub Continuous Integration 
-with [appimage-bash Github Action](https://github.com/marketplace/actions/appimage-bash).
+with the [Go AppImage packager v2.0.0](https://github.com/valicm/appimage-bash/tree/v2.0.0).
+
+Desktop entry values are defined inline in `.github/workflows/release.yml`; no separate desktop file is required. Builds update `latest`, publish versioned releases, and retain the newest 10 managed versioned releases.
 
 ____________________________________________________________________________________________________________________________________
 _PhpStorm and the PhpStorm logo are registered trademarks of JetBrains s.r.o._
