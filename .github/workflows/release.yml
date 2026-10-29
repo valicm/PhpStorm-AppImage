@@ -10,11 +10,13 @@ on:
 jobs:
   version:
     name: PhpStorm AppImage
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+      - name: Install libfuse2
+        run: sudo apt-get install -y libfuse2      
       - name: Build
         id: build
         uses: valicm/appimage-bash@v1.1
@@ -26,7 +28,7 @@ jobs:
           version_directory: 'opt/phpstorm'
       - name: Upload artifact
         if: ${{ env.APP_UPDATE_NEEDED == 'true' }}
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APP_SHORT_NAME }}.AppImage
           path: 'dist'
