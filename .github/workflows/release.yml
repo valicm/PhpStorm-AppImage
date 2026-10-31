@@ -30,14 +30,14 @@ jobs:
             Name=PhpStorm
             Exec=phpstorm.sh %f
             Icon=Phpstorm
-            Comment=PhpStorm
+            Comment=PhpStorm IDE
             Categories=Development;IDE;
             Terminal=false
             StartupNotify=true
             StartupWMClass=jetbrains-phpstorm
           version_url: 'https://data.services.jetbrains.com/products/download?code=PS&platform=linux'
           version_file: 'product-info.json'
-          version_icon: 'phpstorm.svg'
+          version_icon: 'bin/phpstorm.png'
           version_directory: 'opt/phpstorm'
           publish_releases: 'true'
           versioned_releases: 'true'
